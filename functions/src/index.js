@@ -2,7 +2,7 @@ import { Router } from 'itty-router'
 import Stripe from 'stripe'
 
 // Environment variables (injected via wrangler.toml or dashboard)
-const stripe = new Stripe(STRIPE_SECRET_KEY, {
+const stripe = new Stripe(`${env.STRIPE_SECRET_KEY}`, {
   apiVersion: '2024-04-10',
 })
 
