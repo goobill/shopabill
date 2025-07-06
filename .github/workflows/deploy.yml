@@ -23,7 +23,7 @@ jobs:
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        command: pages deploy . --project-name=$PROJECT --branch=main
+        command: pages deploy . --project-name=${{ $PROJECT }} --branch=main
       env:
         STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
-        YOUR_DOMAIN: $DOMAIN
+        YOUR_DOMAIN: ${{ $DOMAIN }}
