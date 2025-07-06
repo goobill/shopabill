@@ -10,7 +10,7 @@ permissions:
 
 env:
   PROJECT: shopabill
-  DOMAIN: shopabill
+  DOMAIN: shop.goobill.com
 
 jobs:
   build:
@@ -18,12 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - name: Upload to Cloudflare workers
+    - name: Upload to Cloudflare
       uses: cloudflare/wrangler-action@v3
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        workingDirectory: "functions"
         command: pages deploy . --project-name=$PROJECT --branch=main
       env:
         STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
