@@ -8,15 +8,23 @@ permissions:
       id-token: write
       contents: read
 
+env:
+  PROJECT: shopabill
+  DOMAIN: shopabill
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-
-    - name: Upload to Cloudflare pages
+    
+    - name: Upload to Cloudflare workers
       uses: cloudflare/wrangler-action@v3
       with:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        command: pages deploy . --project-name=goobill --branch=main
+        workingDirectory: "functions"
+        command: pages deploy . --project-name=$PROJECT --branch=main
+      env:
+        STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
+        YOUR_DOMAIN: $DOMAIN
