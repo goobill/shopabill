@@ -1,0 +1,16 @@
+name: Shopabill
+description: ""
+
+inventory:
+  - id: prod_SHKQ8s7DGxLYqo
+    name: "Goobill Sticker"
+    splash: ""
+    images: 
+      - ""
+      - ""
+      - ""
+    description: ""
+    short: ""
+    tags:
+      - ""
+    
