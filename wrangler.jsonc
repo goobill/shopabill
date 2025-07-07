@@ -10,10 +10,6 @@
 	"observability": {
 		"enabled": true
 	},
-	"vars": {
-		"STRIPE_SECRET_KEY": "secret",
-		"DOMAIN": "http://localhost:8787/"
-	},
 	"assets": {
 		"directory": "./public",
 		"binding": "ASSETS",
