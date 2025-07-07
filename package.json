@@ -6,8 +6,7 @@
 		"deploy": "wrangler deploy",
 		"dev": "wrangler dev",
 		"start": "wrangler dev",
-		"test": "vitest",
-		"build": "node build.js"
+		"test": "vitest"
 	},
 	"devDependencies": {
 		"@cloudflare/vitest-pool-workers": "^0.8.19",
@@ -16,7 +15,6 @@
 		"wrangler": "^4.23.0"
 	},
 	"dependencies": {
-		"itty-router": "^5.0.18",
 		"stripe": "^18.3.0"
 	}
 }
