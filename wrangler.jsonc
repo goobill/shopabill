@@ -10,8 +10,18 @@
 	"observability": {
 		"enabled": true
 	},
+	"vars": {
+		"DOMAIN": "http://localhost:8787/"
+	},
 	"assets": {
 		"directory": "./public",
 		"binding": "ASSETS",
+	},
+	"env": {
+		"prod": {
+			"vars": {
+				"DOMAIN": "https://shop.goobill.com"
+			}
+		}
 	}
 }

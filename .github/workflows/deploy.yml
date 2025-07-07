@@ -8,9 +8,6 @@ permissions:
       id-token: write
       contents: read
 
-env:
-  DOMAIN: https://shop.goobill.com
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,14 +20,8 @@ jobs:
         apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         wranglerVersion: "4.23.0"
+        environment: prod
+        secrets: |
+          STRIPE_SECRET_KEY
       env:
-        DOMAIN: ${{ env.DOMAIN }}
-    
-    - name: Set secrets
-      uses: cloudflare/wrangler-action@v3
-      with:
-        apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-        accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-        wranglerVersion: "4.23.0"
-        command:
-          echo "${{ secrets.STRIPE_SECRET_KEY }}" | wrangler secret put STRIPE_SECRET_KEY
+        STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
