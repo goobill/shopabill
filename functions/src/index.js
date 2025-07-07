@@ -18,7 +18,7 @@ const createCheckoutSession = async (stripe, domain) => {
       ui_mode: 'embedded',
       line_items: [
         {
-          price: '{{PRICE_ID}}', // Replace with your actual Stripe price ID
+          price: 'price_1RiK5TQ5edmpQrvmw1DWanMO', // Replace with your actual Stripe price ID
           quantity: 1,
         },
       ],
@@ -84,9 +84,9 @@ export default {
     }
 
     switch (pathName) {
-      case "create-checkout-session":
+      case "/api/create-checkout-session":
         return createCheckoutSession(stripe, domain)
-      case "session-status":
+      case "/api/session-status":
         return sessionStatus(stripe, sessionId)
       default:
         return new Response('404, not found!', { status: 404 });
