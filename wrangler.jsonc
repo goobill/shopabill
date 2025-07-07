@@ -11,7 +11,7 @@
 		"enabled": true
 	},
 	"vars": {
-		"DOMAIN": "http://localhost:8787/"
+		"DOMAIN": "https://shop.goobill.com"
 	},
 	"assets": {
 		"directory": "./public",
