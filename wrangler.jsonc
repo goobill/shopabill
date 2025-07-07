@@ -10,8 +10,12 @@
 	"observability": {
 		"enabled": true
 	},
+	"vars": {
+		"DOMAIN": "example.com",
+		"STRIPE_SECRET_KEY": "example_secret"
+	},
 	"build": {
-		"command": "npm run build"
+		"command": "node build.js"
 	},
 	"assets": {
 		"directory": "./public",

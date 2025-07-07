@@ -1,8 +1,11 @@
 import { Router } from 'itty-router'
 import Stripe from 'stripe'
 
+const stripe_secret_key = env.STRIPE_SECRET_KEY
+const domain = env.DOMAIN
+
 // Environment variables (injected via wrangler.toml or dashboard)
-const stripe = new Stripe(`${env.STRIPE_SECRET_KEY}`, {
+const stripe = new Stripe(stripe_secret_key, {
   apiVersion: '2024-04-10',
 })
 
@@ -31,7 +34,7 @@ router.post('/create-checkout-session', async (request) => {
         },
       ],
       mode: 'payment',
-      return_url: `${YOUR_DOMAIN}/return.html?session_id={CHECKOUT_SESSION_ID}`,
+      return_url: `${domain}/return.html?session_id={CHECKOUT_SESSION_ID}`,
     })
 
     return new Response(JSON.stringify({ clientSecret: session.client_secret }), {

@@ -25,4 +25,4 @@ jobs:
         wranglerVersion: "4.23.0"
       env:
         STRIPE_SECRET_KEY: ${{ secrets.STRIPE_SECRET_KEY }}
-        YOUR_DOMAIN: ${{ env.DOMAIN }}
+        DOMAIN: ${{ env.DOMAIN }}
