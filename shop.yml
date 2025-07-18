@@ -3,7 +3,8 @@ description: ""
 
 inventory:
   - id: price_1RiK5TQ5edmpQrvmw1DWanMO
-    name: "Goobill Sticker"
+    shipping_rate: shr_1RmGrtQ5edmpQrvmMmV3ChsH
+    name: Goobill Sticker 1
     splash: ""
     images: 
       - ""
@@ -13,4 +14,16 @@ inventory:
     short: ""
     tags:
       - ""
-    
+  - id: price_1RmHIXQ5edmpQrvmF1SxjoPD
+    shipping_rate: shr_1RmGrtQ5edmpQrvmMmV3ChsH
+    name: Goobill Sticker 2
+    splash: ""
+    images: 
+      - ""
+      - ""
+      - ""
+    description: ""
+    short: ""
+    tags:
+      - ""
+

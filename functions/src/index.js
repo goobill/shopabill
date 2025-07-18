@@ -1,21 +1,12 @@
 import Stripe from 'stripe'
 
-// // Utility: Read request JSON body safely
-// async function readJson(request) {
-//   const contentType = request.headers.get('Content-Type') || ''
-//   if (contentType.includes('application/json')) {
-//     return await request.json()
-//   }
-//   return {}
-// }
-
 // POST /create-checkout-session
 const createCheckoutSession = async (stripe, domain) => {
   try {
     // const body = await readJson(request)
 
     const session = await stripe.checkout.sessions.create({
-      ui_mode: 'embedded',
+      ui_mode: 'custom',
       line_items: [
         {
           price: 'price_1RiK5TQ5edmpQrvmw1DWanMO', // Replace with your actual Stripe price ID
@@ -74,7 +65,7 @@ export default {
     let stripe;
     try {
       stripe = new Stripe(stripe_secret_key, {
-        apiVersion: '2024-04-10',
+        apiVersion: '2025-03-31.basil',
       }) 
     } catch (err) {
       return new Response(JSON.stringify({ error: err.message }), {

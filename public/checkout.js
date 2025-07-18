@@ -32,10 +32,19 @@ async function initialize() {
   checkout = await stripe.initCheckout({
     fetchClientSecret: () => promise,
     elementsOptions: { appearance },
-  });
+  })
 
   checkout.on('change', (session) => {
     // Handle changes to the checkout session
+    const subtotal = document.getElementById('subtotal');
+    const shipping = document.getElementById('shipping');
+    const total = document.getElementById('total');
+  
+    checkout.on('change', (session) => {
+      subtotal.textContent = `Subtotal: ${session.total.subtotal.amount}`;
+      shipping.textContent = `Shipping: ${session.total.shippingRate.amount}`;
+      total.textContent = `Total: ${session.total.total.amount}`;
+    })
   });
 
   document.querySelector("#button-text").textContent = `Pay ${
@@ -62,6 +71,10 @@ async function initialize() {
 
   const paymentElement = checkout.createPaymentElement();
   paymentElement.mount("#payment-element");
+  const billingAddressElement = checkout.createBillingAddressElement();
+  billingAddressElement.mount("#billing-address-element");
+  const shippingAddressElement = checkout.createShippingAddressElement();
+  shippingAddressElement.mount('#shipping-address');
 }
 
 async function handleSubmit(e) {
