@@ -163,3 +163,11 @@ body {
         flex: 0 1 100%;
     }
 }
+
+/* Footer */
+.footer {
+    text-align: center;
+    margin-top: 60px;
+    color: #888;
+    font-size: 0.9rem;
+  }
