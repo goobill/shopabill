@@ -2,9 +2,7 @@ name: Shopabill
 description: ""
 
 inventory:
-  - id: price_1RiK5TQ5edmpQrvmw1DWanMO
-    shipping_rate: shr_1RmGrtQ5edmpQrvmMmV3ChsH
-    name: Goobill Sticker 1
+  - name: Goobill Sticker 1
     splash: ""
     images: 
       - ""
@@ -14,6 +12,13 @@ inventory:
     short: ""
     tags:
       - ""
+    cost:
+      - price: 11.50
+      - shipping: 3.20
+    stripe:
+      - price_id: price_1RiK5TQ5edmpQrvmw1DWanMO
+      - shipping_rate_id: shr_1RmGrtQ5edmpQrvmMmV3ChsH
+
   - id: price_1RmHIXQ5edmpQrvmF1SxjoPD
     shipping_rate: shr_1RmGrtQ5edmpQrvmMmV3ChsH
     name: Goobill Sticker 2
